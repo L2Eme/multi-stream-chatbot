@@ -20,7 +20,6 @@ jobs:
     - name: Install DevTools
       run: |
         npm install jest
-        npm install prettier
     - name: Build
       run: |
         npm install
@@ -28,7 +27,6 @@ jobs:
         CI: true
     - name: Tests
       run: |
-        npm run pretty
         npm test
       env:
         CI: true

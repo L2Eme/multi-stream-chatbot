@@ -11,9 +11,7 @@
     "bot"
   ],
   "scripts": {
-    "test": "jest --silent",
-    "pretty": "prettier --check **/*.js",
-    "fix-pretty": "prettier --write **/*.js **/__tests__/*.js"
+    "test": "jest --silent"
   },
   "repository": {
     "type": "git",
