@@ -32,13 +32,10 @@
     "url": "https://github.com/HackerShackOfficial/multi-stream-chatbot/issues"
   },
   "dependencies": {
-    "googleapis": "~42.0.0",
-    "node-fetch": "~2.6.0",
-    "tmi.js": "~1.4.5"
+    "googleapis": "^84.0.0",
+    "node-fetch": "^2.6.1",
+    "tmi.js": "^1.8.5"
   },
   "homepage": "https://github.com/HackerShackOfficial/multi-stream-chatbot#readme",
-  "devDependencies": {
-    "jest": "~24.9.0",
-    "prettier": "~1.19.1"
-  }
+  "devDependencies": {}
 }

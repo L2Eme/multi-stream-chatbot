@@ -17,6 +17,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Install DevTools
+      run: |
+        npm install jest
+        npm install prettier
     - name: Build
       run: |
         npm install
