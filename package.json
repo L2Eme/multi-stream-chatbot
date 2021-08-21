@@ -1,7 +1,7 @@
 {
-  "name": "multi-stream-chatbot",
+  "name": "rx-multi-stream-chatbot",
   "version": "1.0.0",
-  "description": "Chatbot framework that listens and sends messages to multiple streaming platforms simultaneously",
+  "description": "A fork of multi-stream-chatbot with rx interface. Chatbot framework that listens and sends messages to multiple streaming platforms simultaneously",
   "main": "index.js",
   "files": [
     "actions",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HackerShackOfficial/multi-stream-chatbot.git"
+    "url": "git+https://github.com/L2Eme/multi-stream-chatbot.git"
   },
   "keywords": [
     "twitch",
@@ -26,16 +26,15 @@
     "multi",
     "stream"
   ],
-  "author": "atainter",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HackerShackOfficial/multi-stream-chatbot/issues"
+    "url": "https://github.com/L2Eme/multi-stream-chatbot/issues"
   },
   "dependencies": {
     "googleapis": "^84.0.0",
     "node-fetch": "^2.6.1",
     "tmi.js": "^1.8.5"
   },
-  "homepage": "https://github.com/HackerShackOfficial/multi-stream-chatbot#readme",
+  "homepage": "https://github.com/L2Eme/multi-stream-chatbot#readme",
   "devDependencies": {}
 }
