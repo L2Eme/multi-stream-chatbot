@@ -1,9 +1,15 @@
-class TwitchAuth {
-    constructor({ oauthToken, botUsername, channel }) {
-        this.oauthToken = oauthToken
-        this.botUsername = botUsername
-        this.channel = channel
+"use strict";
+exports.__esModule = true;
+/**
+ * TwitchAuth is a simple auth data object
+ */
+var TwitchAuth = /** @class */ (function () {
+    function TwitchAuth(_a) {
+        var oauthToken = _a.oauthToken, botUsername = _a.botUsername, channel = _a.channel;
+        this.oauthToken = oauthToken;
+        this.botUsername = botUsername;
+        this.channel = channel;
     }
-}
-
-module.exports = TwitchAuth
+    return TwitchAuth;
+}());
+exports.TwitchAuth = TwitchAuth;

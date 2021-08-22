@@ -30,12 +30,21 @@ class YoutubeAuth {
         return this.auth
     }
 
+    /**
+     * save refresh token to local file
+     * @param {*} tokens 
+     */
     updateTokens(tokens) {
         if (tokens.refresh_token) {
-            file.save(this.tokenFilePath, JSON.stringify(this.auth.tokens))
+            file.save(this.tokenFilePath, JSON.stringify(tokens))
         }
     }
 
+    /**
+     * express getCode will redirect to google OAuth page.
+     * may use a express Response instance to redirect to the auth page
+     * @param {*} response to open the url
+     */
     getCode(response) {
         const authUrl = this.auth.generateAuthUrl({
             access_type: "offline",
@@ -45,6 +54,10 @@ class YoutubeAuth {
         response.redirect(authUrl)
     }
 
+    /**
+     * express open one url to listen google OAuth callback.
+     * @param {string} code google OAuth return a code
+     */
     async getTokensWithCode(code) {
         const credentials = await this.auth.getToken(code)
         await this.authorize(credentials)
