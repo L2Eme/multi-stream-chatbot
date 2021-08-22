@@ -29,10 +29,13 @@
     "url": "https://github.com/L2Eme/multi-stream-chatbot/issues"
   },
   "dependencies": {
+    "@types/node": "^16.7.1",
     "googleapis": "^84.0.0",
     "node-fetch": "^2.6.1",
     "tmi.js": "^1.8.5"
   },
   "homepage": "https://github.com/L2Eme/multi-stream-chatbot#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "google-auth-library": "^7.6.2"
+  }
 }
