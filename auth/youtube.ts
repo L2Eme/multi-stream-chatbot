@@ -58,6 +58,11 @@ export class YoutubeAuth {
 	/**
 	 * express getCode will redirect to google OAuth page.
 	 * may use a express Response instance to redirect to the auth page
+	 * 
+	 * 方法的设计有问题，依赖一个没有引入的response概念，而且getCode的名字不太容易理解
+	 * getAuthUrl() => string
+	 * 让调用方拿到url之后，再决定如何使用
+	 * 
 	 * @param {*} response to open the url
 	 */
 	getCode(response: { redirect: (url: string) => void }) {
@@ -74,8 +79,10 @@ export class YoutubeAuth {
 	 * @param {string} code google OAuth return a code
 	 */
 	async getTokensWithCode(code: string) {
-		const credentials = await this.auth.getToken(code)
-		await this.authorize(credentials)
+		// 获取到的是getToken的response，response中才有token
+		const response = await this.auth.getToken(code)
+		// 并不需要单独使用authorize方法，此处可以inline it
+		await this.authorize(response)
 	}
 
 	async authorize({ tokens }: { tokens: Credentials }) {
@@ -83,6 +90,10 @@ export class YoutubeAuth {
 		await file.save(this.tokenFilePath, JSON.stringify(tokens))
 	}
 
+	/**
+	 * load token from file
+	 * 命名的方式有问题, TODO: rename this
+	 */
 	async checkTokens() {
 		const file_contents = await file.read(this.tokenFilePath)
 		const tokens = JSON.parse(file_contents)

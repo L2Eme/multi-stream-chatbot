@@ -37,5 +37,8 @@
   "homepage": "https://github.com/L2Eme/multi-stream-chatbot#readme",
   "devDependencies": {
     "google-auth-library": "^7.6.2"
+  },
+  "peerDependencies": {
+    "rxjs": "6.6.6"
   }
 }

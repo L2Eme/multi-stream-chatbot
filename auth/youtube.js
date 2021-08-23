@@ -40,6 +40,11 @@ class YoutubeAuth {
     /**
      * express getCode will redirect to google OAuth page.
      * may use a express Response instance to redirect to the auth page
+     *
+     * 方法的设计有问题，依赖一个没有引入的response概念，而且getCode的名字不太容易理解
+     * getAuthUrl() => string
+     * 让调用方拿到url之后，再决定如何使用
+     *
      * @param {*} response to open the url
      */
     getCode(response) {
@@ -55,8 +60,10 @@ class YoutubeAuth {
      */
     getTokensWithCode(code) {
         return __awaiter(this, void 0, void 0, function* () {
-            const credentials = yield this.auth.getToken(code);
-            yield this.authorize(credentials);
+            // 获取到的是getToken的response，response中才有token
+            const response = yield this.auth.getToken(code);
+            // 并不需要单独使用authorize方法，此处可以inline it
+            yield this.authorize(response);
         });
     }
     authorize({ tokens }) {
@@ -65,6 +72,10 @@ class YoutubeAuth {
             yield file.save(this.tokenFilePath, JSON.stringify(tokens));
         });
     }
+    /**
+     * load token from file
+     * 命名的方式有问题, TODO: rename this
+     */
     checkTokens() {
         return __awaiter(this, void 0, void 0, function* () {
             const file_contents = yield file.read(this.tokenFilePath);
